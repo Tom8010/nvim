@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/.config/nvim/keys/wich-key.vim.html</title>
+<meta name="Generator" content="Vim/8.0">
+<meta name="plugin-version" content="vim8.1_v1">
+<meta name="syntax" content="none">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="dracula">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #dadada; background-color: #303030; }
+body { font-family: monospace; color: #dadada; background-color: #303030; }
+* { font-size: 1em; }
+.LineNr { color: #5f5faf; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span>let mapleader=&quot; &quot;
+<span id="L2" class="LineNr"> 2 </span>
+<span id="L3" class="LineNr"> 3 </span>&quot; Map leader to which_key
+<span id="L4" class="LineNr"> 4 </span>nnoremap &lt;silent&gt; &lt;leader&gt; :silent WhichKey '&lt;Space&gt;'&lt;CR&gt;
+<span id="L5" class="LineNr"> 5 </span>vnoremap &lt;silent&gt; &lt;leader&gt; :silent &lt;c-u&gt; :silent WhichKeyVisual '&lt;Space&gt;'&lt;CR&gt;
+<span id="L6" class="LineNr"> 6 </span>
+<span id="L7" class="LineNr"> 7 </span>&quot; Create map to add keys to
+<span id="L8" class="LineNr"> 8 </span>let g:which_key_map =  {}
+<span id="L9" class="LineNr"> 9 </span>&quot; Define a separator
+<span id="L10" class="LineNr">10 </span>let g:which_key_sep = '→'
+<span id="L11" class="LineNr">11 </span>set timeoutlen=100
+<span id="L12" class="LineNr">12 </span>
+<span id="L13" class="LineNr">13 </span>&quot; Not a fan of floating windows for this
+<span id="L14" class="LineNr">14 </span>let g:which_key_use_floating_win = 0
+<span id="L15" class="LineNr">15 </span>
+<span id="L16" class="LineNr">16 </span>&quot; Change the colors if you want
+<span id="L17" class="LineNr">17 </span>highlight default link WhichKey          Operator
+<span id="L18" class="LineNr">18 </span>highlight default link WhichKeySeperator DiffAdded
+<span id="L19" class="LineNr">19 </span>highlight default link WhichKeyGroup     Identifier
+<span id="L20" class="LineNr">20 </span>highlight default link WhichKeyDesc      Function
+<span id="L21" class="LineNr">21 </span>
+<span id="L22" class="LineNr">22 </span>&quot; Hide status line
+<span id="L23" class="LineNr">23 </span>autocmd! FileType which_key
+<span id="L24" class="LineNr">24 </span>autocmd  FileType which_key set laststatus=0 noshowmode noruler
+<span id="L25" class="LineNr">25 </span>  \| autocmd BufLeave &lt;buffer&gt; set laststatus=2 noshowmode ruler
+<span id="L26" class="LineNr">26 </span>
+<span id="L27" class="LineNr">27 </span>&quot; Single mappings
+<span id="L28" class="LineNr">28 </span>let g:which_key_map['.'] = [ ':e ~/.config/nvim/init.vim' , 'init.vim' ]
+<span id="L29" class="LineNr">29 </span>let g:which_key_map['/'] = [ '&lt;Plug&gt;NERDCommenterToggle'  , 'comment' ]
+<span id="L30" class="LineNr">30 </span>let g:which_key_map['a'] = [ '&lt;C-u&gt;CocList diagnostic'    , 'CocList diagnostic' ]
+<span id="L31" class="LineNr">31 </span>let g:which_key_map['e'] = [ ':CocCommand explorer'       , 'explorer' ]
+<span id="L32" class="LineNr">32 </span>let g:which_key_map['E'] = [ ':CocCommand explorer --preset floating'
+<span id="L33" class="LineNr">33 </span>      \, 'explorer floating' ]
+<span id="L34" class="LineNr">34 </span>let g:which_key_map['h'] = [ '&lt;C-W&gt;s'                     , 'split below']
+<span id="L35" class="LineNr">35 </span>let g:which_key_map['v'] = [ '&lt;C-W&gt;v'                     , 'split right']
+<span id="L36" class="LineNr">36 </span>let g:which_key_map['F'] = [ ':FZF'                       , 'FZF' ]
+<span id="L37" class="LineNr">37 </span>let g:which_key_map['q'] = [ ':q'                         , 'quit' ]
+<span id="L38" class="LineNr">38 </span>let g:which_key_map['p'] = [ ':PrettierAsync'             , 'prettier' ]
+<span id="L39" class="LineNr">39 </span>let g:which_key_map['L'] = [ ':Lines'                     , 'lines' ]
+<span id="L40" class="LineNr">40 </span>let g:which_key_map['f'] = [ ':Files'                     , 'files' ]
+<span id="L41" class="LineNr">41 </span>let g:which_key_map['t'] = [ ':terminal'                  , 'terminal' ]
+<span id="L42" class="LineNr">42 </span>let g:which_key_map['d'] = [ ':bdelete'                   , 'delete']
+<span id="L43" class="LineNr">43 </span>let g:which_key_map['b'] = [ ':Todo'                      , 'Todo']
+<span id="L44" class="LineNr">44 </span>&quot; s is for search
+<span id="L45" class="LineNr">45 </span>let g:which_key_map.o = {
+<span id="L46" class="LineNr">46 </span>      \ 'name' : '+all' ,
+<span id="L47" class="LineNr">47 </span>      \ '/' : [':History/'     , 'history'],
+<span id="L48" class="LineNr">48 </span>      \ ';' : [':Commands'     , 'commands'],
+<span id="L49" class="LineNr">49 </span>      \ 'a' : [':Ag'           , 'text Ag'],
+<span id="L50" class="LineNr">50 </span>      \ 'b' : [':BLines'       , 'current buffer'],
+<span id="L51" class="LineNr">51 </span>      \ 'B' : [':Buffers'      , 'open buffers'],
+<span id="L52" class="LineNr">52 </span>      \ 'c' : [':Commits'      , 'commits'],
+<span id="L53" class="LineNr">53 </span>      \ 'C' : [':BCommits'     , 'buffer commits'],
+<span id="L54" class="LineNr">54 </span>      \ 'f' : [':Files'        , 'files'],
+<span id="L55" class="LineNr">55 </span>      \ 'g' : [':GFiles'       , 'git files'],
+<span id="L56" class="LineNr">56 </span>      \ 'G' : [':GFiles?'      , 'modified git files'],
+<span id="L57" class="LineNr">57 </span>      \ 'h' : [':History'      , 'file history'],
+<span id="L58" class="LineNr">58 </span>      \ 'H' : [':History:'     , 'command history'],
+<span id="L59" class="LineNr">59 </span>      \ 'l' : [':Lines'        , 'lines'] ,
+<span id="L60" class="LineNr">60 </span>      \ 'm' : [':Marks'        , 'marks'] ,
+<span id="L61" class="LineNr">61 </span>      \ 'M' : [':Maps'         , 'normal maps'] ,
+<span id="L62" class="LineNr">62 </span>      \ 'p' : [':Helptags'     , 'help tags'] ,
+<span id="L63" class="LineNr">63 </span>      \ 'P' : [':Tags'         , 'project tags'],
+<span id="L64" class="LineNr">64 </span>      \ 's' : [':Snippets'     , 'snippets'],
+<span id="L65" class="LineNr">65 </span>      \ 'S' : [':Colors'       , 'color schemes'],
+<span id="L66" class="LineNr">66 </span>      \ 't' : [':Rg'           , 'text Rg'],
+<span id="L67" class="LineNr">67 </span>      \ 'T' : [':BTags'        , 'buffer tags'],
+<span id="L68" class="LineNr">68 </span>      \ 'w' : [':Windows'      , 'search windows'],
+<span id="L69" class="LineNr">69 </span>      \ 'y' : [':Filetypes'    , 'file types'],
+<span id="L70" class="LineNr">70 </span>      \ }
+<span id="L71" class="LineNr">71 </span>
+<span id="L72" class="LineNr">72 </span>let g:which_key_map.s = {
+<span id="L73" class="LineNr">73 </span>  \ 'name'  : 'sys',
+<span id="L74" class="LineNr">74 </span>  \ 'a'     : [':e ~/.config/alacritty/alacritty.yml'             ,     'alacritty'],
+<span id="L75" class="LineNr">75 </span>  \ 'i'     : [':e ~/.config/i3/config'                           ,     'i3']
+<span id="L76" class="LineNr">76 </span>  \ }
+<span id="L77" class="LineNr">77 </span>
+<span id="L78" class="LineNr">78 </span>&quot;let O
+<span id="L79" class="LineNr">79 </span>
+<span id="L80" class="LineNr">80 </span>&quot; Register which key map
+<span id="L81" class="LineNr">81 </span>call which_key#register('&lt;Space&gt;', &quot;g:which_key_map&quot;)
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

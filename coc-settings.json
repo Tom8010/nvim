@@ -1,0 +1,74 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "html",
+    "jsx",
+    "css",
+    "js",
+    "vim",
+    "typescript",
+    "python"
+  ],
+  "json.enable": true,
+  "json.format.enable": true,
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true,
+  "emmet.includeLanguages": {
+    "ejs": "html",
+    "javascriptreact": "javascript",
+    "jsx": "html"
+  },
+  "explorer.icon.enableNerdfont": true,
+  "explorer.width": 30,
+  "explorer.previewAction.onHover": "content",
+  "explorer.keyMappings.global": {
+    "<CR>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+  "explorer.position": "left",
+  "snippets.extends": {
+    "cpp": ["c"],
+    "javascriptreact": ["javascript"],
+    "javascript": ["javascript"]
+  },
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  },
+  "html.filetypes": [
+    "jsx",
+    "html",
+    "handlebars",
+    "blade",
+    "ejs",
+    "pug",
+    "markdown"
+  ],
+  "html.autoClosingTags": true,
+  "html.format.wrapLineLength": 60,
+  "prettier.formatterPriority": 1,
+  "python.jediEnabled": false,
+  "codeLens.enable": true,
+  "java.referencesCodeLens.enabled": true,
+  "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok.jar",
+  "clangd.path": "/home/thom/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
+  "python.autoComplete.addBrackets": true,
+  "translator.toLang": "en",
+  "translator.engines": ["google"],
+  "translator.enableHover": true,
+  "svg.completion.showAdvanced": true,
+  "svg.disableFormatOnSave": true,
+  "prettier.disableSuccessMessage": true,
+  "cSpellExt.enableDictionaries": ["spanish"],
+  "cSpell.language": "en,es",
+  " omnisharp.debug.server": true
+}
